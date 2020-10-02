@@ -7,7 +7,7 @@ output:
 
 
 
-1.  Loading the required libraries
+##  Loading the required libraries
 
 
 ```{r setup}
@@ -18,7 +18,7 @@ library(knitr)
 library(png)
 ```
 
-2.  Unzipping,reading, and processing data:
+##  Unzipping,reading, and processing data:
 
 ```{r}
 unzip("activity.zip")
@@ -28,7 +28,7 @@ activity$date=as.Date(activity$date, '%Y-%m-%d')
 
 
 
-3. Creating a dataframe of total number of steps taken each day:
+## Creating a dataframe of total number of steps taken each day:
 
 
 ```{r}
@@ -37,7 +37,7 @@ by_day<-group_by(activity, date)
 sum_steps<-summarize(by_day, steps=sum(steps), .groups = 'drop')
 head(sum_steps)
 ```
-4. Plotting a histogram for total number of steps taken each day
+## Plotting a histogram for total number of steps taken each day
 
 
 ```{r}
@@ -47,19 +47,19 @@ ggplot(sum_steps,aes(x=date,y=steps)) +
         theme(axis.text.x=element_text(angle=90))
 ```
 
-5. Calculating mean of total daily steps:
+## Calculating mean of total daily steps:
 
 ```{r}
 mean(sum_steps$steps, na.rm=TRUE)
 ```
 
-6. Calculating median of total daily steps:
+## Calculating median of total daily steps:
 
 ```{r}
 median(sum_steps$steps, na.rm=TRUE)
 ```
 
-7. Creating a dataframe of average number of steps per each interval across all days:
+## Creating a dataframe of average number of steps per each interval across all days:
 
 
 ```{r}
@@ -69,7 +69,7 @@ avg_steps<-summarize(by_interval, steps=mean(steps,na.rm=TRUE), .groups = 'drop'
 head(avg_steps)
 ```
 
-8. Plotting average number of steps per each interval across all days:
+## Plotting average number of steps per each interval across all days:
 
 ```{r}
 ggplot(avg_steps,aes(x=interval,y=steps)) +
@@ -80,7 +80,7 @@ ggplot(avg_steps,aes(x=interval,y=steps)) +
 ```
 
 
-9. Calculating the interval with the maximum number of steps (average across all days)
+## Calculating the interval with the maximum number of steps (average across all days)
 
 
 ```{r}
@@ -91,7 +91,7 @@ avg_steps[avg_steps$steps==max(avg_steps$steps),]
 nrow(activity)*mean(is.na(activity$steps))
 ```
 
-11. Replacing NA values with mean values for the interval 
+## Replacing NA values with mean values for the interval 
 
 
 ```{r}
@@ -108,7 +108,7 @@ for (row in 1:nrow(activity2)) {
 
 
 
-12. Creating a dataframe of total number of steps taken each day (with replaced NA):
+## Creating a dataframe of total number of steps taken each day (with replaced NA):
 
 
 ```{r}
@@ -117,7 +117,7 @@ by_day2<-group_by(activity2, date)
 sum_steps2<-summarize(by_day2, steps=sum(steps), .groups = 'drop')
 head(sum_steps2)
 ```
-13. Plotting a histogram for total number of steps taken each day (with NA replaced)
+## Plotting a histogram for total number of steps taken each day (with NA replaced)
 
 
 ```{r}
@@ -127,26 +127,26 @@ ggplot(sum_steps2,aes(x=date,y=steps)) +
         theme(axis.text.x=element_text(angle=90))
 ```
 
-14. Calculating mean of total daily steps (with replaced NA):
+## Calculating mean of total daily steps (with replaced NA):
 
 ```{r}
 mean(sum_steps2$steps, na.rm=TRUE)
 ```
 
-15. Calculating median of total daily steps (with replaced NA):
+## Calculating median of total daily steps (with replaced NA):
 
 ```{r}
 median(sum_steps2$steps, na.rm=TRUE)
 ```
 
-16. Adding factor variable for weekend/weekdays values:
+## Adding factor variable for weekend/weekdays values:
 
 ```{r}
 activity2$day<-factor(if_else(weekdays(activity2[,2]) %in% c('Saturday','Sunday'),'weekend', 'weekday'))
 str(activity2$day)
 ```
 
-17. Creating a dataframe of average number of steps per each interval for weekdays:
+## Creating a dataframe of average number of steps per each interval for weekdays:
 
 ```{r}
 
@@ -155,7 +155,7 @@ avg_weekday<-summarize(by_weekday_int, steps=mean(steps), .groups = 'drop')
 head(avg_weekday)
 ```
 
-18. Comparing average number of steps per each interval for weekends and weekdays:
+## Comparing average number of steps per each interval for weekends and weekdays:
 
 
 ```{r}

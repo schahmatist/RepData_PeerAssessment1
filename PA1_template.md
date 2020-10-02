@@ -7,7 +7,7 @@ output:
 
 
 
-1.  Loading the required libraries
+##  Loading the required libraries
 
 
 
@@ -43,7 +43,7 @@ library(png)
 ## Error in library(png): there is no package called 'png'
 ```
 
-2.  Unzipping,reading, and processing data:
+##  Unzipping,reading, and processing data:
 
 
 ```r
@@ -54,7 +54,7 @@ activity$date=as.Date(activity$date, '%Y-%m-%d')
 
 
 
-3. Creating a dataframe of total number of steps taken each day:
+## Creating a dataframe of total number of steps taken each day:
 
 
 
@@ -76,7 +76,7 @@ head(sum_steps)
 ## 5 2012-10-05 13294
 ## 6 2012-10-06 15420
 ```
-4. Plotting a histogram for total number of steps taken each day
+## Plotting a histogram for total number of steps taken each day
 
 
 
@@ -93,7 +93,7 @@ ggplot(sum_steps,aes(x=date,y=steps)) +
 
 ![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
 
-5. Calculating mean of total daily steps:
+## Calculating mean of total daily steps:
 
 
 ```r
@@ -104,7 +104,7 @@ mean(sum_steps$steps, na.rm=TRUE)
 ## [1] 10766.19
 ```
 
-6. Calculating median of total daily steps:
+## Calculating median of total daily steps:
 
 
 ```r
@@ -115,7 +115,7 @@ median(sum_steps$steps, na.rm=TRUE)
 ## [1] 10765
 ```
 
-7. Creating a dataframe of average number of steps per each interval across all days:
+## Creating a dataframe of average number of steps per each interval across all days:
 
 
 
@@ -137,7 +137,7 @@ head(avg_steps)
 ## 6       25 2.09
 ```
 
-8. Plotting average number of steps per each interval across all days:
+## Plotting average number of steps per each interval across all days:
 
 
 ```r
@@ -151,7 +151,7 @@ ggplot(avg_steps,aes(x=interval,y=steps)) +
 ![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
 
 
-9. Calculating the interval with the maximum number of steps (average across all days)
+## Calculating the interval with the maximum number of steps (average across all days)
 
 
 
@@ -175,7 +175,7 @@ nrow(activity)*mean(is.na(activity$steps))
 ## [1] 2304
 ```
 
-11. Replacing NA values with mean values for the interval 
+## Replacing NA values with mean values for the interval 
 
 
 
@@ -192,7 +192,7 @@ for (row in 1:nrow(activity2)) {
 
 
 
-12. Creating a dataframe of total number of steps taken each day (with replaced NA):
+## Creating a dataframe of total number of steps taken each day (with replaced NA):
 
 
 
@@ -214,7 +214,7 @@ head(sum_steps2)
 ## 5 2012-10-05 13294 
 ## 6 2012-10-06 15420
 ```
-13. Plotting a histogram for total number of steps taken each day (with NA replaced)
+## Plotting a histogram for total number of steps taken each day (with NA replaced)
 
 
 
@@ -227,7 +227,7 @@ ggplot(sum_steps2,aes(x=date,y=steps)) +
 
 ![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png)
 
-14. Calculating mean of total daily steps (with replaced NA):
+## Calculating mean of total daily steps (with replaced NA):
 
 
 ```r
@@ -238,7 +238,7 @@ mean(sum_steps2$steps, na.rm=TRUE)
 ## [1] 10766.19
 ```
 
-15. Calculating median of total daily steps (with replaced NA):
+## Calculating median of total daily steps (with replaced NA):
 
 
 ```r
@@ -249,7 +249,7 @@ median(sum_steps2$steps, na.rm=TRUE)
 ## [1] 10766.19
 ```
 
-16. Adding factor variable for weekend/weekdays values:
+## Adding factor variable for weekend/weekdays values:
 
 
 ```r
@@ -261,7 +261,7 @@ str(activity2$day)
 ##  Factor w/ 2 levels "weekday","weekend": 1 1 1 1 1 1 1 1 1 1 ...
 ```
 
-17. Creating a dataframe of average number of steps per each interval for weekdays:
+## Creating a dataframe of average number of steps per each interval for weekdays:
 
 
 ```r
@@ -282,7 +282,7 @@ head(avg_weekday)
 ## 6       10 weekend 0.0165
 ```
 
-18. Comparing average number of steps per each interval for weekends and weekdays:
+## Comparing average number of steps per each interval for weekends and weekdays:
 
 
 
