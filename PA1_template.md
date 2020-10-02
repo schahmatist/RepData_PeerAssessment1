@@ -36,11 +36,6 @@ library(dplyr)
 
 ```r
 library(knitr)
-library(png)
-```
-
-```
-## Error in library(png): there is no package called 'png'
 ```
 
 ##  Unzipping,reading, and processing data:
